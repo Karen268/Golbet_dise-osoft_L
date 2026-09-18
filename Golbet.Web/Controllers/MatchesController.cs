@@ -1,5 +1,7 @@
-﻿using Golbet.Entities.Enums;
+
+﻿// GolBet.Web/Controllers/MatchesController.cs 
 using GolBet.Services.Interfaces;
+using Golbet.Entities.Enums;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GolBet.Web.Controllers;
@@ -11,7 +13,7 @@ public class MatchesController : Controller
     public MatchesController(IMatchService matchService)
         => _matchService = matchService;
 
-    // GET /Matches            -> all matches
+
     // GET /Matches?status=Scheduled -> filtered board
     public async Task<IActionResult> Index(MatchStatus? status)
     {
@@ -27,6 +29,13 @@ public class MatchesController : Controller
         if (match is null) return NotFound();   // HTTP 404
 
         return View(match);
+    }
+
+    // GET /Matches
+    public async Task<IActionResult> Index()
+    {
+        var board = await _matchService.GetBoardAsync();
+        return View(board);
     }
 }
 
