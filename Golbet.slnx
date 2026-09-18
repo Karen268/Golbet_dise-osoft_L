@@ -8,5 +8,5 @@
   <Folder Name="/GolBet.Web/">
     <Project Path="GolBet.Web/Golbet.Web.csproj" />
   </Folder>
-  <Project Path="Golbet.services/Golbet.services.csproj" />
+  <Project Path="Golbet.services/Golbet.services.csproj" DisplayName="GolBet.Services" />
 </Solution>
